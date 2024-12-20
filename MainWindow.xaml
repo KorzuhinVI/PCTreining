@@ -1,0 +1,57 @@
+﻿<Window x:Class="PCBuilderTrainer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:PCBuilderTrainer.ViewModel"
+        Title="PC Builder Trainer" Height="350" Width="600">
+
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <ComboBox x:Name="MotherboardComboBox" 
+          DisplayMemberPath="Name" 
+          SelectedItem="{Binding SelectedMotherboard}" 
+          ItemsSource="{Binding Motherboards}" 
+          HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
+
+
+        <ComboBox x:Name="ProcessorComboBox" 
+          DisplayMemberPath="Name" 
+          SelectedItem="{Binding SelectedProcessor}" 
+          ItemsSource="{Binding Processors}" 
+          HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="200"/>
+
+        <ComboBox x:Name="GraphicsCardComboBox" 
+          DisplayMemberPath="Name" 
+          SelectedItem="{Binding SelectedGraphicsCard}" 
+          ItemsSource="{Binding GraphicsCards}" 
+          HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="200"/>
+
+        <ComboBox x:Name="RamComboBox" 
+          DisplayMemberPath="Name" 
+          SelectedItem="{Binding SelectedRam}" 
+          ItemsSource="{Binding RamModules}" 
+          HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="200"/>
+
+        <ComboBox x:Name="CoolerComboBox" 
+          DisplayMemberPath="Name" 
+          SelectedItem="{Binding SelectedCooler}" 
+          ItemsSource="{Binding Coolers}" 
+          HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Width="200"/>
+
+        <ComboBox x:Name="PowerSupplyComboBox" 
+          DisplayMemberPath="Name" 
+          SelectedItem="{Binding SelectedPowerSupply}" 
+          ItemsSource="{Binding PowerSupplies}" 
+          HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="200"/>
+
+
+        <!-- Кнопка для сборки ПК -->
+        <Button Content="Собрать ПК" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,250,0,0" Width="200"
+                Command="{Binding AssemblePCCommand}" />
+
+        <!-- Сообщение о совместимости -->
+        <TextBlock Text="{Binding CompatibilityMessage}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,290,0,0" FontSize="14"/>
+    </Grid>
+</Window>
